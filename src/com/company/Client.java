@@ -60,17 +60,8 @@ public class Client {
                 clientSocket.send(closePacket);
                 forbundet = false;
                 clientSocket.close();
-                //Used to broadcast a msg
-            }/*else if (input.toLowerCase().contains("Broadcast".toLowerCase())){
-                String sentence = " " + input + ", " +  "by user: " + username + " " + IPAddress + ":" + "9876";
-                sendData = sentence.getBytes();
-                DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, IPAddress, 9876);
-                clientSocket.send(sendPacket);
-                DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
-                clientSocket.receive(receivePacket);
-                String modifiedSentence = new String(receivePacket.getData());
-                System.out.println("FROM SERVER: " + modifiedSentence);
-            }*///Used in every other case
+            }
+            //Used in every other case
             else{
                 String sentence = username +  ": Message: " + input + " " ;
                 sendData = sentence.getBytes();
