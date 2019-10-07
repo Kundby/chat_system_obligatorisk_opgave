@@ -75,7 +75,7 @@ public class Server {
                     }
                     System.out.println("Current users: " + clientList);
                     //Used to broadcast a msg, from one client to all clients
-                }else if (sentence.toLowerCase().contains("Broadcast".toLowerCase())){
+                }/*else if (sentence.toLowerCase().contains("Broadcast".toLowerCase())){
                     System.out.println("Broadcast test");
                     for (int i = 0; i < clientList.size(); i++){
                         String capitalizedSentence = "Broadcast: " + sentence.toUpperCase();
@@ -83,6 +83,14 @@ public class Server {
                         DatagramPacket broadcastPacket = new DatagramPacket(sendData, sendData.length, IPAddress, port);
                         serverSocket.send(broadcastPacket);
                     }
+                }*///Used in every other case
+                else{
+                    String capitalizedSentence = sentence.toUpperCase();
+                    sendData = capitalizedSentence.getBytes();
+                    DatagramPacket sendPacket =
+                            new DatagramPacket(sendData, sendData.length, IPAddress, port);
+                    serverSocket.send(sendPacket);
+
                 }
 
         }
